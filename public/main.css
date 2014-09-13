@@ -21,3 +21,14 @@ img#smashball {
 	margin-bottom: -30px;
 	top: -18px;
 }
+
+btn{
+	width: 100%;
+	float:right;
+	text-align:center;
+	margin-top: 4px;
+}
+
+label {
+    width: 94px;
+}
