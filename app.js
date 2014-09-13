@@ -24,6 +24,7 @@
 	var EmailSchema = new mongoose.Schema({
 		email: {type: String, required: true, unique: true},
 		type: {type: String, required: true},
+		offer: {type: String},
 		timestamp: {type: Number, 'default': Date.now()}
 	});
 	
@@ -49,6 +50,7 @@
 	app.post('/wantEmails', function(req, res){
 		var email = new EmailModel({
 			email: req.body.email,
+			offer: req.body.offer,
 			type: 'want'
 		});
 		email.save(function(err){
@@ -60,6 +62,7 @@
 	app.post('/haveEmails', function(req, res){
 		var email = new EmailModel({
 			email: req.body.email,
+			offer: req.body.offer,
 			type: 'have'
 		});
 		email.save(function(err){

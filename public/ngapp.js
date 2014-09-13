@@ -27,4 +27,16 @@
 			wantEmail: $resource('/wantEmails', '', {'get': {isArray: true}})
 		};
 	}]);
+	
+	app.directive('tooltip', ['$timeout', function($timeout){
+		return{
+			restrict: 'A',
+			link: function(scope, elem, attr){
+				console.log($(elem));
+				$timeout(function(){
+					$(elem).tooltip();
+				}, 200)
+			}
+		};
+	}]);
 })();

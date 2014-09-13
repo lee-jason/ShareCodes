@@ -18,6 +18,7 @@
 			Those that want the code, reach out to those who do have one and hope they're nice
 			<br/>
 			feel free to work out a deal</p>
+			<p>hover over emails to see what users want or are offering</p>
 			<p>I encourage the use of throwaway email services like <a href="https://www.guerrillamail.com/">guerrillamail</a> or <a href="http://10minutemail.com/">10minutemail</a> as to not expose your real email</p>
 		<p><strong>BE CAREFUL:</strong> if something feels scammy it probably is scammy. Please practice discretion when making deals</p>
 		<p></p>
@@ -28,12 +29,15 @@
 				<p  ng-show="wantEmailsForm.email.$error.email"><span>This is not a valid email.</span></p>
 				<p ng-show="wantEmailsForm.email.$error.required"><span >Need an email</span></p>
 				<input id="emailField" type="email" name="email" required></input>
+				<br/>
+				<label for="offer">offering:</label>
+				<input id="offering" name="offer" required></input>
 				<input type="submit" class="submitButton" value="I want a code!"></input>
 			</form>
 			<h3>Dudes that <strong>want</strong> spare codes</h3>
 			<ul>
 				<li ng-repeat="email in app.wantEmails | orderBy: 'timestamp':true">
-					<a href="mailto:{{email.email}}">{{email.email}}</a>
+					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="{{email.offer}}" tooltip>{{email.email}}</a>
 				</li>
 			</ul>
 		</div>
@@ -43,12 +47,15 @@
 				<p ng-show="haveEmailsForm.email.$error.email"><span >This is not a valid email.</span></p>
 				<p ng-show="haveEmailsForm.email.$error.required"><span >Need an email</span></p>
 				<input id="emailField" type="email" name="email" required></input>
+				<br/>
+				<label for="offer">looking for:</label>
+				<input id="offering" name="offer" required></input>
 				<input type="submit" class="submitButton" value="I have a spare code!"></input>
 			</form>
 			<h3>Dudes that <strong>have</strong> spare codes</h3>
 			<ul>
 				<li ng-repeat="email in app.haveEmails | orderBy: 'timestamp':true">
-					<a href="mailto:{{email.email}}">{{email.email}}</a>
+					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="{{email.offer}}" tooltip>{{email.email}}</a>
 				</li>
 			</ul>
 		</div>
