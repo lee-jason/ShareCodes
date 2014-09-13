@@ -13,3 +13,11 @@ div.haveDudes {
     width: 50%;
     float: left;
 }
+
+img#smashball {
+	position: relative;
+	width: 100px;
+	margin-right: 8px;
+	margin-bottom: -30px;
+	top: -18px;
+}
