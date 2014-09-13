@@ -24,6 +24,7 @@
 		<p></p>
 		<p>emails over 30 minutes old will be pruned from the list. feel free to repost your email if it gets pruned </p>
 		<div class="wantDudes">
+			<h3>Dudes that <strong>want</strong> codes</h3>
 			<form action="/wantEmails" method="post" name="wantEmailsForm">
 				<label for="email">email:</label>
 				<p  ng-show="wantEmailsForm.email.$error.email"><span>This is not a valid email.</span></p>
@@ -35,29 +36,29 @@
 				<br/>
 				<input type="submit" class="submitButton btn btn-primary" value="I want a code!"></input>
 			</form>
-			<h3>Dudes that <strong>want</strong> codes</h3>
+			
 			<ul>
 				<li ng-repeat="email in app.wantEmails | orderBy: 'timestamp':true">
-					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="{{email.offer}}" tooltip>{{email.email}}</a>
+					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="offering: {{email.offer}}" tooltip>{{email.email}}</a>
 				</li>
 			</ul>
 		</div>
 		<div class="haveDudes">
+			<h3>Dudes that <strong>have</strong> codes</h3>
 			<form action="/haveEmails" method="post" name="haveEmailsForm">
 				<label for="email" name="email">email:</label>
 				<p ng-show="haveEmailsForm.email.$error.email"><span >This is not a valid email.</span></p>
 				<p ng-show="haveEmailsForm.email.$error.required"><span >Need an email</span></p>
 				<input id="emailField" type="email" name="email" required></input>
 				<br/>
-				<label for="offer">looking for:</label>
+				<label for="offer">I want:</label>
 				<input id="offering" name="offer" required></input>
 				<br/>
 				<input type="submit" class="submitButton btn btn-primary" value="I have a spare code!"></input>
 			</form>
-			<h3>Dudes that <strong>have</strong> codes</h3>
 			<ul>
 				<li ng-repeat="email in app.haveEmails | orderBy: 'timestamp':true">
-					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="{{email.offer}}" tooltip>{{email.email}}</a>
+					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="want: {{email.offer}}" tooltip>{{email.email}}</a>
 				</li>
 			</ul>
 		</div>
