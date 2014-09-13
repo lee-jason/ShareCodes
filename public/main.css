@@ -36,3 +36,16 @@ label {
 ul {
 	margin-top: 12px;
 }
+
+
+@media (max-width: 420px) {
+	div.wantDudes {
+	    width: 100%;
+	    float: none;
+	}
+	div.haveDudes {
+	    width: 100%;
+	    float: none;;
+	}
+
+}
