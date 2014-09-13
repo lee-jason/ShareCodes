@@ -30,13 +30,30 @@ btn{
 }
 
 label {
-    width: 94px;
+    width: 78px;
 }
 
 ul {
 	margin-top: 12px;
 }
 
+img.flagicon {
+	position: relative;
+	top: -1px;
+	margin-left: 4px;
+}
+.emaillist .flagicon{
+	margin-left: 0px;
+}
+input.radio {
+	display: inline;
+	position: relative;
+	top: 6px;
+}
+
+label.radiolabel {
+	width: 40px;
+}
 
 @media (max-width: 420px) {
 	div.wantDudes {

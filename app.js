@@ -25,6 +25,7 @@
 		email: {type: String, required: true, unique: true},
 		type: {type: String, required: true},
 		offer: {type: String},
+		region: {type: String},
 		timestamp: {type: Number, 'default': Date.now()}
 	});
 	
@@ -51,6 +52,7 @@
 		var email = new EmailModel({
 			email: req.body.email,
 			offer: req.body.offer,
+			region: req.body.region,
 			type: 'want'
 		});
 		email.save(function(err){
@@ -63,6 +65,7 @@
 		var email = new EmailModel({
 			email: req.body.email,
 			offer: req.body.offer,
+			region: req.body.region,
 			type: 'have'
 		});
 		email.save(function(err){

@@ -11,18 +11,18 @@
 		<script src="ngapp.js" type="text/javascript"></script>
 	</head>
 	<body ng-controller="appController as app">
-		<h1><img src="SmashBall.png" id="smashball"/> 3DS Smash Bros Demo Code Sharer</h1>
-		<p>if you have any spare smash bros demo codes, please list your email or reach out to those who
-			don't have it yet and share it.  
-			<br/>
-			Those that want the code, reach out to those who do have one and hope they're nice
-			<br/>
-			feel free to work out a deal</p>
+		<h1><img src="SmashBall.png" id="smashball"/>Share Smash Codes for 3DS </h1>
+			<p>
+				<strong>Guys with codes</strong> list what you want for it or give it away
+				<br/>
+				<strong>Guys wanting codes</strong> list what you'll offer for one or charm the seller
+			</p>
+			
 			<p><strong>hover over emails to see what users want or are offering</strong></p>
-			<p>I encourage the use of throwaway email services like <a href="https://www.guerrillamail.com/">guerrillamail</a> or <a href="http://10minutemail.com/">10minutemail</a> as to not expose your real email</p>
-		<p><strong>BE CAREFUL:</strong> if something feels scammy it probably is scammy. Please practice discretion when making deals</p>
+			<p><strong>Avoid using your real email.</strong> Use a throwaway email <a href="https://www.guerrillamail.com/">guerrillamail</a> or <a href="http://10minutemail.com/">10minutemail</a></p>
+		<p><strong>BE WARY OF SCAMS</strong></p>
 		<p></p>
-		<p>emails over 30 minutes old will be pruned from the list. feel free to repost your email if it gets pruned </p>
+		<p>Emails will be pruned after 30 minutes. feel free to repost your email if it gets pruned </p>
 		<div class="wantDudes">
 			<h3>Dudes that <strong>want</strong> codes</h3>
 			<form action="/wantEmails" method="post" name="wantEmailsForm">
@@ -34,12 +34,18 @@
 				<label for="offer">offering:</label>
 				<input id="offering" name="offer" required></input>
 				<br/>
+				<label>Region:</label>
+				<input class="radio" type="radio" name="region" value="USA" id="USA" required><img class="flagicon" src="Us.png" /></input> <label class="radiolabel" for="USA">USA</label>
+				<input class="radio" type="radio" name="region" value="EU" id="EU" required><img class="flagicon" src="Eu.png" /></input>  <label class="radiolabel" for="EU">EU</label>
+				<br/>
 				<input type="submit" class="submitButton btn btn-primary" value="I want a code!"></input>
 			</form>
 			
-			<ul>
+			<ul class="emaillist">
 				<li ng-repeat="email in app.wantEmails | orderBy: 'timestamp':true">
-					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="offering: {{email.offer}}" tooltip>{{email.email}}</a>
+					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="offering: {{email.offer}}" tooltip>
+						<img class="flagicon" src="Us.png" ng-show="email.region === 'USA'"/><img class="flagicon" src="Eu.png" ng-show="email.region === 'EU'"/> {{email.email}}
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -54,11 +60,17 @@
 				<label for="offer">I want:</label>
 				<input id="offering" name="offer" required></input>
 				<br/>
+				<label for="region">Region:</label>
+				<input class="radio" type="radio" name="region" value="USA" id="USA2" required><img class="flagicon" src="Us.png" /></input> <label class="radiolabel" for="USA2">USA</label>
+				<input class="radio" type="radio" name="region" value="EU" id="EU2" required><img class="flagicon" src="Eu.png" /></input>  <label class="radiolabel" for="EU2">EU</label>
+				<br/>
 				<input type="submit" class="submitButton btn btn-primary" value="I have a spare code!"></input>
 			</form>
-			<ul>
+			<ul class="emaillist">
 				<li ng-repeat="email in app.haveEmails | orderBy: 'timestamp':true">
-					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="want: {{email.offer}}" tooltip>{{email.email}}</a>
+					<a href="mailto:{{email.email}}" data-toggle="tooltip" data-placement="right" title="want: {{email.offer}}" tooltip>
+						<img class="flagicon" src="Us.png" ng-show="email.region === 'USA'"/><img class="flagicon" src="Eu.png" ng-show="email.region === 'EU'"/> {{email.email}}
+					</a>
 				</li>
 			</ul>
 		</div>
