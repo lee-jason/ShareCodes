@@ -7,7 +7,8 @@
 	, mongoose = require('mongoose')
 	, uriUtil = require('mongodb-uri')
 	
-	server.listen(5000);
+	var port = process.env.PORT || 5000;
+	server.listen(port);
 	app.use('/', express.static(path.resolve('./public')));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());
