@@ -1,0 +1,15 @@
+html, body{
+    background-color: rgb(240, 236, 255);
+}
+html.ng-scope {
+    width: 90%;
+    margin: 0 auto;
+}
+div.wantDudes {
+    width: 50%;
+    float: left;
+}
+div.haveDudes {
+    width: 50%;
+    float: left;
+}

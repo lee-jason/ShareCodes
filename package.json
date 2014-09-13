@@ -1,0 +1,20 @@
+{
+  "name": "EmailShare",
+  "version": "0.0.0",
+  "description": "a quick and dirty app to enable communication between people that want something or have something to give away quickly",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.9.0",
+    "path": "^0.4.9",
+    "body-parser": "^1.8.1",
+    "http": "0.0.0",
+    "mongoose": "^3.8.16",
+    "mongodb-uri": "^0.9.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
