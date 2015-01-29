@@ -13,10 +13,7 @@
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());
 	
-	mongourl = 'mongodb://localhost/quizapp';
-	if(process.env.NODE_ENV === 'production'){
-		mongourl = 'mongodb://heroku_app29522665:31hcibolppj6ofv158v2tppojf@ds035250.mongolab.com:35250/heroku_app29522665';
-	}
+	mongourl = process.env.MONGOLAB_URI || 'mongodb://localhost/quizapp';
 	
 	var mongooseUri = uriUtil.formatMongoose(mongourl);
 	mongoose.connect(mongooseUri);
